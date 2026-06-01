@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Búsqueda</title>
+    <link rel="stylesheet" href="Examen2.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-item">Inicio</a>
+        <a href="#" class="nav-item">Conocenos</a>
+        <a href="#" class="nav-item active">Productos</a>
+        <a href="#" class="nav-item">Registro</a>
+        <a href="#" class="nav-item">Contacto</a>
+    </nav>
+
+    <div class="form-container">
+        
+        <form class="form-fields" onsubmit="event.preventDefault();">
+            <div class="form-group">
+                <label for="web">Web:</label>
+                <input type="text" id="web">
+            </div>
+            
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+            </div>
+            
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido">
+            </div>
+        </form>
+
+        <button type="submit" class="btn-buscar">
+            Buscar
+        </button>
+
+    </div>
+
+</body>
+</html>
