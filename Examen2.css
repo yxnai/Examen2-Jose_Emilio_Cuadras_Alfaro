@@ -1,0 +1,209 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN GLOBAL Y RESETEO
+   ========================================================================== */
+
+/* Selector universal: Aplica a todos los elementos del documento HTML */
+* {
+    /* El tamaño total del elemento incluirá el padding y el borde, evitando desbordamientos */
+    box-sizing: border-box;
+    /* Elimina el margen externo que los navegadores añaden por defecto */
+    margin: 0;
+    /* Elimina el espacio o relleno interno predeterminado */
+    padding: 0;
+    /* Establece la tipografía principal del sitio (prioriza Arial, si no usa una sin remates) */
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para el contenedor principal de la página web */
+body {
+    /* Color de fondo general de la pantalla (un gris muy claro con matiz azulado) */
+    background-color: #f0f4f8;
+    /* Colchón de espacio de 20px en los bordes para que el contenido no toque la pantalla */
+    padding: 20px;
+    /* Activa el modelo de caja Flexbox para controlar la distribución de los hijos */
+    display: flex;
+    /* Alinea los elementos hijos principales uno debajo del otro (en vertical) */
+    flex-direction: column;
+    /* Centra horizontalmente todos los bloques dentro del body */
+    align-items: center;
+    /* Separa los bloques hijos (el menú y el formulario) por una distancia fija de 40px */
+    gap: 40px;
+}
+
+/* ==========================================================================
+   2. MENÚ DE NAVEGACIÓN (NAVBAR)
+   ========================================================================== */
+
+/* Contenedor principal de la barra de navegación */
+.navbar {
+    /* Activa Flexbox para alinear las pestañas de forma horizontal (por defecto) */
+    display: flex;
+    /* Ocupa el 100% del ancho disponible en pantallas pequeñas */
+    width: 100%;
+    /* Limita el crecimiento del menú a un máximo de 900px en monitores grandes */
+    max-width: 900px;
+    /* Línea de contorno del menú, delgada y de color azul marino oscuro */
+    border: 1px solid #1a3a5f;
+    /* Color de fondo base de la barra de navegación */
+    background-color: #3b74b4;
+}
+
+/* Cada una de las pestañas o enlaces individuales del menú */
+.nav-item {
+    /* Distribuye el espacio equitativamente; todas las pestañas medirán exactamente lo mismo */
+    flex: 1;
+    /* Centra el texto de la pestaña horizontalmente */
+    text-align: center;
+    /* Añade 12px de espacio arriba y abajo del texto, y 0 a los lados */
+    padding: 12px 0;
+    /* Color negro para el texto de los enlaces */
+    color: #000;
+    /* Quita el subrayado que los enlaces de hipervínculo traen por defecto en HTML */
+    text-decoration: none;
+    /* Tamaño de la fuente del texto */
+    font-size: 16px;
+    /* Grosor de la letra (500 equivale a un grosor medio) */
+    font-weight: 500;
+    /* Dibuja una línea vertical divisoria a la derecha de cada pestaña */
+    border-right: 1px solid #1a3a5f;
+    /* Color de fondo inicial de las pestañas */
+    background-color: #4a8db7;
+    /* Suaviza el cambio de color de fondo durante 0.2 segundos (efecto transición) */
+    transition: background-color 0.2s;
+}
+
+/* Pseudo-clase que selecciona únicamente a la última pestaña del menú */
+.nav-item:last-child {
+    /* Quita la línea divisoria derecha al último elemento para no duplicar el borde externo */
+    border-right: none;
+}
+
+/* Estilo para la pestaña seleccionada que representa la página actual (ej. 'Productos') */
+.nav-item.active {
+    /* Sobrescribe el fondo por un azul más claro para denotar que está activa */
+    background-color: #6da9d2;
+}
+
+/* Efecto que se dispara cuando el usuario pasa el puntero del mouse sobre una pestaña */
+.nav-item:hover {
+    /* Cambia el fondo a un azul intermedio para dar retroalimentación visual */
+    background-color: #599bc5;
+}
+
+/* ==========================================================================
+   3. CONTENEDOR DEL FORMULARIO
+   ========================================================================== */
+
+/* Caja contenedora que envuelve los campos de texto y el botón de búsqueda */
+.form-container {
+    /* Ocupa todo el ancho en dispositivos móviles */
+    width: 100%;
+    /* Limita el tamaño de la tarjeta a un ancho máximo de 800px */
+    max-width: 800px;
+    /* Fondo con un degradado de color que inicia con un azul claro arriba y termina en azul marino abajo */
+    background: linear-gradient(to bottom, #4ba3c3, #235e8a);
+    /* Borde grueso alrededor de la tarjeta */
+    border: 4px solid #0f2d4a;
+    /* Redondea fuertemente las cuatro esquinas del contenedor (estilo cápsula) */
+    border-radius: 35px;
+    /* Margen interno: 30px arriba/abajo y 40px a la izquierda/derecha */
+    padding: 30px 40px;
+    /* Añade una sombra hacia abajo y difuminada para dar un efecto de relieve/flotado */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    /* Activa Flexbox para organizar el bloque de preguntas y el botón "Buscar" a los lados */
+    display: flex;
+    /* Centra verticalmente los elementos internos */
+    align-items: center;
+    /* Empuja las preguntas al extremo izquierdo y el botón de búsqueda al extremo derecho */
+    justify-content: space-between;
+    /* Deja una separación de 20px entre el bloque de preguntas y el botón */
+    gap: 20px;
+}
+
+/* ==========================================================================
+   4. CAMPOS DEL FORMULARIO
+   ========================================================================== */
+
+/* Bloque que agrupa todas las filas de preguntas (etiquetas + inputs) */
+.form-fields {
+    /* Toma todo el espacio disponible que el botón "Buscar" no utilice */
+    flex: 1;
+    /* Activa Flexbox para controlar las filas */
+    display: flex;
+    /* Acomoda los grupos de preguntas de manera vertical (una fila debajo de la otra) */
+    flex-direction: column;
+    /* Separa cada renglón de preguntas por una distancia de 15px */
+    gap: 15px;
+}
+
+/* Cada fila individual que contiene un label (texto) y su caja de texto (input) */
+.form-group {
+    /* Activa Flexbox para alinear la etiqueta y la caja de texto en la misma línea horizontal */
+    display: flex;
+    /* Alinea el centro del texto con el centro de la caja de entrada de forma vertical */
+    align-items: center;
+}
+
+/* Estilo para los textos descriptivos de los campos (etiquetas) */
+.form-group label {
+    /* Ancho fijo obligatorio para que todos los inputs inicien exactamente en la misma posición */
+    width: 90px;
+    /* Color azul muy oscuro para el texto de la etiqueta */
+    color: #0c1a30;
+    /* Hace que la letra sea negrita */
+    font-weight: bold;
+    /* Tamaño de la letra */
+    font-size: 14px;
+}
+
+/* Estilo para las cajas donde el usuario escribe la información */
+.form-group input {
+    /* Se estira automáticamente para rellenar todo el ancho restante de la fila */
+    flex: 1;
+    /* Relleno interno: 6px arriba/abajo y 10px a los lados para que el texto no se pegue al borde */
+    padding: 6px 10px;
+    /* Borde delgado gris para delimitar la caja */
+    border: 1px solid #777;
+    /* Tamaño de la letra que escribe el usuario */
+    font-size: 14px;
+    /* Color gris oscuro para el texto digitado */
+    color: #333;
+    /* Color de fondo azul muy tenue para las cajas de texto */
+    background-color: #e8f0fe;
+}
+
+/* ==========================================================================
+   5. BOTÓN BUSCAR
+   ========================================================================== */
+
+/* Estilos para el botón interactivo de búsqueda ubicado al lado derecho */
+.btn-buscar {
+    /* Ancho fijo del botón */
+    width: 140px;
+    /* Alto fijo del botón (lo hace robusto y casi cuadrado) */
+    height: 100px;
+    /* Color de fondo gris claro azulado */
+    background-color: #e3edf7;
+    /* Borde fino de color gris */
+    border: 1px solid #999;
+    /* Color azul oscuro para el texto "BUSCAR" */
+    color: #123c73;
+    /* Tamaño grande de la fuente */
+    font-size: 22px;
+    /* Texto en negrita */
+    font-weight: bold;
+    /* Texto con inclinación cursiva */
+    font-style: italic;
+    /* Transforma el cursor en una mano con dedo índice al posicionarse encima (indica clic) */
+    cursor: pointer;
+    /* Activa Flexbox internamente en el botón */
+    display: flex;
+    /* Centra verticalmente el texto dentro del botón */
+    align-items: center;
+    /* Centra horizontalmente el texto dentro del botón */
+    justify-content: center;
+    /* Añade una ligera sombra hacia abajo a la derecha para dar volumen al botón */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    /* Define dos transiciones: escala instantánea en 0.1s y cambio de color suave en 0.2s */
+    transition: transform 0.1s, background-color 0.2s;
+}
